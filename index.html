@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Tooltip Example</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <h2 class="mb-4">Tooltip Example</h2>
+
+        <!-- Top Tooltip -->
+        <button type="button"
+            class="btn btn-primary"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="This is the basic tooltip">
+            Hover on me (Top)
+        </button>
+
+        <!-- Right Tooltip -->
+        <button type="button"
+            class="btn btn-secondary ms-2"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Tooltip on right">
+            Right Tooltip
+        </button>
+
+        <!-- Left Tooltip -->
+        <button type="button"
+            class="btn btn-warning ms-2"
+            data-bs-toggle="tooltip"
+            data-bs-placement="left"
+            title="Tooltip on left">
+            Left Tooltip
+        </button>
+
+        <!-- HTML Tooltip -->
+        <button type="button"
+            class="btn btn-danger ms-2"
+            data-bs-toggle="tooltip"
+            data-bs-html="true"
+            title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+            HTML Tooltip
+        </button>
+
+        <!-- Delay Tooltip -->
+        <button type="button"
+            class="btn btn-dark ms-2"
+            id="customTooltip"
+            title="This tooltip has a delay">
+            Tooltip with Delay
+        </button>
+
+    </div>
+
+    <!-- Tooltip Initialization -->
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Select all tooltip elements
+            const tooltipTriggerList =
+                [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+            // Initialize Bootstrap Tooltips
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Custom delay tooltip
+            new bootstrap.Tooltip(document.getElementById('customTooltip'), {
+                delay: {
+                    show: 500,
+                    hide: 200
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
